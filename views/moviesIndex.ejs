@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Movies</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="head">
+        <!-- Logo -->
+        <img src="/images/logo.webp" alt="logo" width="80" height="80" class="logo" />
+        <!-- Navigation Links -->
+        <a href="/">Home</a>
+        <a href="/movies"> Show Movies</a>
+        <a href="/movies/new"> Add a new movie </a>
+    </div>
+    <!-- End Header Section -->
+
+    <hr>
+
+    <!-- Page Title -->
+    <h1 style="text-align: center; font-size: 40px;"> My Movies</h1>
+    <!-- Page Description -->
+    <p style="text-align: center; color: rgb(97, 97, 97);"> 
+        some of the best movies you can watch over and over again!!
+    </p>
+    
+    <!-- Sort Buttons Section -->
+    <div style="text-align: center;">
+        <form action="/movies" method="GET" >
+            <button name="sort" value="ascendingly" style="background-color: rgb(227, 152, 55);">Sort ascendingly by rating</button>
+            <button name="sort" value="decendingly" style="background-color: rgb(227, 152, 55);">Sort decendingly by rating</button>
+        </form>
+    </div>
+    <!-- End Sort Buttons Section -->
+
+    <!-- Movies Container -->
+    <div class="container">
+        <!-- Loop through movies and display each movie card -->
+        <% for(let i = 0 ; i < movies.length; i++) {%>
+            <div class="card">
+                <img src="<%= movies[i].poster %>" alt="" width="250">
+                <h2> <%= movies[i].title  %></h2>
+                <p><%= movies[i].rating.toFixed(1)  %></p>
+              
+                <!-- Button Container for View, Edit, Delete -->
+                <div class="button-container">
+                    <a href="/movies/<%= movies[i]._id %>/view">
+                        <button style="background-color: green;">View</button>
+                    </a>
+                    <a href="/movies/<%= movies[i]._id %>/edit">
+                        <button style="background-color: yellow;">Edit</button>
+                    </a>
+                    <form action="/movies/<%= movies[i]._id %>?_method=DELETE" method="post">
+                        <button style="background-color: red;">Delete</button>
+                    </form>
+                </div>
+                <!-- End Button Container -->
+                <br>
+            </div>
+        <% } %>
+    </div>
+    <!-- End Movies Container -->
+
+</body>
+</html>

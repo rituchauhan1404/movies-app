@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Edit <%= editMovie._id %></title>
+</head>
+<body>
+
+<!-- Navigation -->
+    <div class=" head">
+        <img src="/images/logo.webp" alt="logo" width="80" height="80" />
+        <a href="/">Home</a>
+        <a href="/movies"> Show Movies</a>
+        <a href="/movies/new"> Add a new movie </a>
+      </div>
+      <!-- End Navigation -->
+     <hr>
+     
+ <!-- Edit Movie Form -->
+    <h1> Edit Movie</h1>
+    <form action="/movies/<%= editMovie._id %>?_method=PATCH" method = "post">
+
+         <!-- form Input -->
+    <label for= "title"> Title of the Movie </label><br>
+    <input type="text" name="title" id="title" value="<%= editMovie.title  %>"><br><br>
+
+    <label for= "year"> year of Production </label><br>
+    <input type="number" name="year" id="year" min="1900" max="2024" value="<%= editMovie.year  %>"><br><br>
+
+    <label for= "poster"> URL for the Poster </label><br>
+    <input type="text" name="poster" id="poster" value="<%= editMovie.poster  %>"><br><br>
+
+    <label for= "rating">IMDB Rating </label><br>
+    <input type="number" name="rating" id="rating" min="0" max="10" step="0.1" value="<%= editMovie.rating  %>"><br><br>
+
+    <label for= "director">Director name </label><br>
+    <input type="text" name="director" id="director" value="<%= editMovie.director %>"><br><br>
+
+    <label for="cast">Cast</label><br>
+     <input type="text" name="cast" id="cast1" value="<%= editMovie.cast[0] %>"> <br><br>
+    <input type="text" name="cast" id="cast2" value="<%=  editMovie.cast[1] %>"> <br><br>
+    <input type="text" name="cast" id="cast3" value="<%= editMovie.cast[2]  %>"> <br><br> 
+  
+
+        <button style="background-color: green;">Edit Movie</button>
+    </form>
+</body>
+</html>

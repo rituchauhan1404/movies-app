@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- Title movie ID -->
+    <title>Movie <%= movie._id %></title>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <div class=" head">
+    <!-- Logo -->
+    <img src="/images/logo.webp" alt="logo" width="80" height="80" />
+    <!-- Navigation Links -->
+    <a href="/">Home</a>
+    <a href="/movies"> Show Movies</a>
+    <a href="/movies/new"> Add a new movie </a>
+  </div>
+  <hr>
+  <!-- Container for Movie Details -->
+  <div class="container2">
+    <!-- Card for Movie Poster -->
+    <div class="card2">
+      <img src="<%= movie.poster %>" alt="" width="400">
+    </div>
+    <!-- Card for Movie Details -->
+    <div class="card2">
+      <!-- Movie Title and Year -->
+      <h1> <%= movie.title %> (<%= movie.year  %>)</h1>
+      <!-- Movie Rating -->
+      <p><b>IMDB rating:</b> <%= movie.rating.toFixed(1)  %></p>
+      <!-- Director -->
+      <p><b>Director:</b> <%= movie.director %></p>
+      <!-- Cast List -->
+      <p><b>Cast:</b></p>
+      <ul>
+        <!-- Loop through cast members -->
+        <% movie.cast.forEach(castMember => { %>
+          <li><%= castMember %></li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>New Movie</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class=" head">
+        <!-- Logo -->
+        <img src="/images/logo.webp" alt="logo" width="80" height="80" />
+        <!-- Navigation Links -->
+        <a href="/">Home</a>
+        <a href="/movies"> Show Movies</a>
+        <a href="/movies/new"> Add a new movie </a>
+    </div>
+    <!-- End Header Section -->
+
+    <hr> 
+
+    <!-- Form to Add a New Movie -->
+    <h1> Add a Movie of your choice</h1>
+    <form action="/movies" method = "post">
+        <!-- Title Input -->
+        <label for= "title"> Title of the Movie </label><br>
+        <input type="text" name="title" id="title"><br><br>
+
+        <!-- Year Input -->
+        <label for= "year"> year of Production </label><br>
+        <input type="number" name="year" id="year" min="1900" max="2024"><br><br>
+
+        <!-- Poster URL Input -->
+        <label for= "poster"> URL for the Poster </label><br>
+        <input type="text" name="poster" id="poster" ><br><br>
+
+        <!-- IMDB Rating Input -->
+        <label for= "rating">IMDB Rating </label><br>
+        <input type="number" name="rating" id="rating" min="0" max="10" step="0.1"><br><br>
+
+        <!-- Director Input -->
+        <label for= "director">Director name </label><br>
+        <input type="text" name="director" id="director"><br><br>
+
+        <!-- Cast Inputs -->
+        <label for="cast">Cast</label><br>
+        <input type="text" name="cast" id="cast1"> <br><br>
+        <input type="text" name="cast" id="cast2"> <br><br>
+        <input type="text" name="cast" id="cast3"> <br><br>
+
+        <!-- Submit Button -->
+        <button type="submit" style="background-color: green;">Submit</button>
+    </form>
+    <!-- End Form -->
+
+</body>
+</html>
